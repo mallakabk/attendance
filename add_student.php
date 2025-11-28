@@ -1,5 +1,5 @@
 <?php
-$file = "students.json";
+$file = "student.json";
 
 $id    = trim($_POST["student_id"]);
 $name  = trim($_POST["name"]);

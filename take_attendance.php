@@ -1,5 +1,5 @@
 <?php
-$students = json_decode(file_get_contents("students.json"), true);
+$students = json_decode(file_get_contents("student.json"), true);
 $today = date("Y-m-d");
 $file = "attendance_$today.json";
 
