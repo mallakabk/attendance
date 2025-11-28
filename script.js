@@ -78,23 +78,7 @@ document.getElementById("showReportBtn").addEventListener("click", function() {
         }]
       }
   });
-  document.getElementById("highlightExcellent").addEventListener("click", function () {
-    let rows = document.querySelectorAll("#studentTable tbody tr");
-
-    rows.forEach(row => {
-        let absCell = row.querySelector(".abs-count");
-
-        if (!absCell) return;
-
-        let abs = parseInt(absCell.innerText);
-
-        if (abs < 3) {
-            row.style.backgroundColor = "#b6ffb3"; // أخضر للطلاب الممتازين
-            row.style.fontWeight = "bold";
-        }
-    });
-});
-
+  
   document.getElementById("reportSection").style.display = "block";
   // Apply JS logic to static rows + JSON rows
 document.querySelectorAll("#attendanceTable tbody tr").forEach(row => {
