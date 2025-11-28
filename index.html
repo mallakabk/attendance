@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Management</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h1>Attendance Management</h1>
+
+<div class="controls">
+    <input type="text" id="searchName" class="input-search" placeholder="Search by Name">
+    <button id="sortAbs" class="btn secondary">Sort by Abs (ASC)</button>
+    <button id="sortPar" class="btn secondary">Sort by Participation (DESC)</button>
+    <button id="highlightExcellent" class="btn">Highlight Excellent</button>
+    <button id="resetColors" class="btn secondary">Reset Colors</button>
+    <button id="showReportBtn" class="btn warn">Show Report</button>
+</div>
+
+<table id="attendanceTable">
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Group</th>
+    <th>Last Name</th>
+    <th>First Name</th>
+
+    <th colspan="6">Sessions</th>
+    <th colspan="6">Participation</th>
+
+    <th>Abs</th>
+    <th>Par</th>
+    <th>Message</th>
+</tr>
+
+<tr>
+    <th></th><th></th><th></th><th></th>
+    <th>S1</th><th>S2</th><th>S3</th><th>S4</th><th>S5</th><th>S6</th>
+    <th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th><th>P6</th>
+    <th></th><th></th><th></th>
+</tr>
+</thead>
+
+<tbody>
+
+<!-- Static Example Students -->
+<tr class="red">
+    <td>101</td>
+    <td>G1</td>
+    <td>Ahmed</td>
+    <td>Sara</td>
+
+    <td><input type="checkbox" class="sess"></td>
+    <td><input type="checkbox" class="sess" checked></td>
+    <td><input type="checkbox" class="sess"></td>
+    <td><input type="checkbox" class="sess"></td>
+    <td><input type="checkbox" class="sess"></td>
+    <td><input type="checkbox" class="sess"></td>
+
+    <td><input type="checkbox" class="par"></td>
+    <td><input type="checkbox" class="par" checked></td>
+    <td><input type="checkbox" class="par"></td>
+    <td><input type="checkbox" class="par"></td>
+    <td><input type="checkbox" class="par"></td>
+    <td><input type="checkbox" class="par"></td>
+
+    <td class="absCount">5 Abs</td>
+    <td class="parCount">1 Par</td>
+    <td class="message-cell">Excluded – too many absences</td>
+</tr>
+
+<tr class="green">
+    <td>102</td>
+    <td>G1</td>
+    <td>Yacine</td>
+    <td>Ali</td>
+
+    <td><input type="checkbox" class="sess" checked></td>
+    <td><input type="checkbox" class="sess"></td>
+    <td><input type="checkbox" class="sess" checked></td>
+    <td><input type="checkbox" class="sess" checked></td>
+    <td><input type="checkbox" class="sess" checked></td>
+    <td><input type="checkbox" class="sess" checked></td>
+
+    <td><input type="checkbox" class="par"></td>
+    <td><input type="checkbox" class="par"></td>
+    <td><input type="checkbox" class="par" checked></td>
+    <td><input type="checkbox" class="par" checked></td>
+    <td><input type="checkbox" class="par" checked></td>
+    <td><input type="checkbox" class="par"></td>
+
+    <td class="absCount">1 Abs</td>
+    <td class="parCount">4 Par</td>
+    <td class="message-cell">Good participation</td>
+</tr>
+
+</tr>
+<tr class="yellow">
+    <td>103</td>
+    <td>G1</td>
+    <td class="last">Houcine</td>
+    <td class="first">Rania</td>
+
+    <td><input type="checkbox" class="sess" checked></td>
+    <td><input type="checkbox" class="sess"></td>
+    <td><input type="checkbox" class="sess" checked></td>
+    <td><input type="checkbox" class="sess" ></td>
+    <td><input type="checkbox" class="sess" ></td>
+    <td><input type="checkbox" class="sess" ></td>
+
+    <td><input type="checkbox" class="par"checked></td>
+    <td><input type="checkbox" class="par"></td>
+    <td><input type="checkbox" class="par" checked></td>
+    <td><input type="checkbox" class="par" ></td>
+    <td><input type="checkbox" class="par"></td>
+    <td><input type="checkbox" class="par"></td>
+
+    <td class="absCount">4 Abs</td>
+    <td class="parCount">2 Par</td>
+    <td class="message-cell">Warning – attendance low – You need to participate more</td>
+</tr>
+</tbody>
+</table>
+
+<div style="text-align:center; margin-top:20px;">
+    <a href="take_attendance.php">
+        <button class="btn warn">Take Attendance</button>
+    </a>
+</div>
+
+<h2>Add Student</h2>
+<form action="add_student.php" method="POST">
+    <label>ID: <input type="text" name="student_id"></label>
+    <label>Name (First Last): <input type="text" name="name"></label>
+    <label>Group: <input type="text" name="group"></label>
+    <button type="submit" class="btn">Add</button>
+</form>
+
+<section id="reportSection" style="display:none;">
+    <h2>Attendance Report</h2>
+    <p id="totalStudents"></p>
+    <p id="presentCount"></p>
+    <p id="participationCount"></p>
+    <canvas id="reportChart"></canvas>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

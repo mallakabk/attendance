@@ -1,0 +1,151 @@
+/* ------------------------------------
+   General Styles
+------------------------------------ */
+body {
+    font-family: Arial, sans-serif;
+    background: #f6f7f9;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #222;
+    margin-bottom: 15px;
+}
+
+/* ------------------------------------
+   Controls
+------------------------------------ */
+.controls {
+    margin-bottom: 25px;
+}
+
+.input-search {
+    padding: 8px 12px;
+    width: 180px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* ------------------------------------
+   Buttons
+------------------------------------ */
+.btn {
+    padding: 8px 14px;
+    margin: 4px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn.secondary {
+    background: #91b1db;
+}
+
+.btn.warn {
+    background: #0aa4d3;
+}
+
+/* ------------------------------------
+   Table styling
+------------------------------------ */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background: #e2e8f0;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+tr:hover {
+    background: #e0f2fe !important;
+}
+
+/* ------------------------------------
+   Row Colors (Dynamic / Default)
+------------------------------------ */
+.red {
+    background-color: #eb7a7a !important;
+}
+
+.green {
+    background-color: #89f0ad !important;
+}
+
+.yellow {
+    background-color: #ebdc8c !important;
+}
+
+/* ------------------------------------
+   Add Student Form
+------------------------------------ */
+form {
+    background: white;
+    padding: 15px;
+    margin: 20px auto;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input {
+    padding: 8px;
+    width: 95%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+}
+
+/* ------------------------------------
+   Report Section
+------------------------------------ */
+#reportSection {
+    background: white;
+    padding: 20px;
+    width: 80%;
+    margin-top: 25px;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#reportSection h2 {
+    margin-top: 0;
+}
+
+/* ------------------------------------
+   Attendance Button
+------------------------------------ */
+a button {
+    margin-top: 20px;
+}
